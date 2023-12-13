@@ -1,0 +1,21 @@
+---
+name: On push to master
+on:
+  push:
+    branches:
+    - asdfasdfasdfasdf
+    # - main
+
+permissions:
+  id-token: "write"
+  contents: "write"
+  packages: "write"
+  pull-requests: "read"
+
+jobs:
+  pretendBuild:
+    name: execute pretend build workflow
+    uses: ./.github/workflows/pretend.yaml
+    with:
+      RELEASE: true
+    secrets: inherit
